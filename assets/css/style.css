@@ -44,7 +44,7 @@
 .nav-section > .logo {
     display: flex;
     gap: 5px;
-    animation: rotateLogo 5s linear infinite; /* La animación dura 60 segundos por vuelta */
+    animation: rotateLogo 5s linear infinite; /* La animación dura 5 segundos por vuelta */
 }
 .nav-section > ul {
     display: none;
