@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+       "nav"
+       "filtros"
+       "main"
+       "footer";
+    grid-template-rows: 60px/*nav*/ 60px/*filtros*/ 1fr/*principal*/ auto/*footer*/; 
+    height: 100vh;
+    width: 100%;
+}
+
+.nav-section {
+    color: #E8E8E8; 
+    background: #333533; 
+    grid-area: nav;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.nav-section > .logo, .nav-section > h1 {
+    display: inline-block;
+    transform-origin: center;
+    transition: transform 0.5s;
+}
+
+.nav-section > .logo:hover, .nav-section > h1:hover {
+    transform: rotateY(360deg);
+}
+@keyframes rotateLogo {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.nav-section > .logo {
+    display: flex;
+    gap: 5px;
+    animation: rotateLogo 5s linear infinite; /* La animación dura 60 segundos por vuelta */
+}
+.nav-section > ul {
+    display: none;
+}
+
+.filtros-section {
+    grid-area: filtros;
+    background-color: #A3A375;
+    align-items: center; 
+    display: flex;
+    flex-direction: column;
+}
+
+.filtros-section > .opcion {
+    width: 280px;
+    height: 35px;
+    padding-left: 5px;
+}
+
+.main-section {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-section > .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px; 
+    gap: 10px;
+}
+
+.main-section > .card-container > .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 0;
+    gap: 15px;
+    height: fit-content;
+    width: 220px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-container > .card > img {
+    width: 200px;
+    height: 300px;
+    filter: grayscale(100%);
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.card-container > .card > img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.main-section p {
+    margin: 10px 0;
+}
+
+.main-section > .card-container > .card > button {
+    background-color: #333533;
+    color: #E8E8E8;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.main-section > .navegador {
+    display: flex;
+}
+
+.navegador > button {
+    background-color: #333533;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+}
+
+.footer {
+    grid-area: footer; 
+    background: #A3A375; 
+    color: #333533;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: #333533;
+}
+
+.footer > div {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 3px;
+}
+
+@media (min-width: 576px) { 
+    .container {
+        grid-template-areas:
+           "nav filtros"
+           "nav main"
+           "footer main";
+        grid-template-columns: 150px 1fr;
+        grid-template-rows: 60px 1fr auto; 
+    }
+    .main-section > .card-container {
+        flex-direction: row; 
+        flex-wrap: wrap;
+    }
+    .nav-section {
+        flex-direction: column;
+        justify-content: start;
+        gap: 35px;
+        padding: 15px;
+    }
+    .nav-section > ul {
+        list-style: none;
+    }
+    .nav-section > ul {
+        display: block;
+    }
+    .nav-section > .logo {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-section > .logo > h1 {
+        text-align: center;
+    }
+    .nav-section > .bars {
+        display: none;
+    }
+}
+
+.main-section > .card-container > .card > button {
+    background-color: #B0B0B0; 
+    color: #333533; 
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.main-section > .card-container > .card > button:hover {
+    transform: scale(1.1);
+    background-color: #FFCC00; 
+}
